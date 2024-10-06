@@ -46,7 +46,7 @@
   border-radius: 10px;
   box-shadow: none;
 
-  #image-drop-card-content {
+  .image-drop-card-content {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,4 +82,8 @@
       color: #808080c2;
     }
   }
+}
+
+#visible-on-drag {
+    background-color: rgb(182, 237, 237);
 }
