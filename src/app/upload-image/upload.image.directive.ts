@@ -12,15 +12,18 @@ export class UploadImageDirective implements OnInit {
         event.preventDefault();
         event.stopPropagation();
         this.imageDragOver.emit();
+        this.hostBackgroundColor = DropColor.DURING_DROP;
     }
     @HostListener('dragleave', ["$event"]) dragLeave(event: DragEvent) {
         event.preventDefault();
         event.stopPropagation();
         this.imageDragLeave.emit();
+        this.hostBackgroundColor = DropColor.BEFORE_DROP;
     }
     @HostListener('drop', ["$event"]) drop(event: DragEvent) {
         event.preventDefault();
         event.stopPropagation();
+        this.hostBackgroundColor = DropColor.AFTER_DROP;
     }
     imageDragOver = output();
     imageDragLeave = output();
@@ -30,8 +33,8 @@ export class UploadImageDirective implements OnInit {
     }
 }
 
-// enum DropColor {
-//     BEFORE_DROP = '#80808017',
-//     DURING_DROP = 'grey',
-//     AFTER_DROP = '#80808017'
-// }
+enum DropColor {
+    BEFORE_DROP = '#80808017',
+    DURING_DROP = 'grey',
+    AFTER_DROP = '#80808017'
+}

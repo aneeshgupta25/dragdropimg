@@ -4,36 +4,37 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { UploadImageDirective } from './upload.image.directive';
+import { PreventDragDirective } from './prevent-drag.directive';
 
 @Component({
   selector: 'app-upload-image',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIconModule, UploadImageDirective],
+  imports: [MatCardModule, MatButtonModule, MatIconModule, UploadImageDirective, PreventDragDirective],
   templateUrl: './upload-image.component.html',
   styleUrl: './upload-image.component.css'
 })
 export class UploadImageComponent implements AfterViewInit {
 
   imageDropCardVisible: boolean = false;
-  @ViewChild('visible') visibleEl!: ElementRef;
-  @ViewChild('invisible') inVisibleEl!: ElementRef;
+  @ViewChild('visibleOnDrag') visibleOnDrag!: ElementRef<HTMLDivElement>;
+  @ViewChild('invisibleOnDrag') invisibleOnDrag!: ElementRef<HTMLDivElement>;
 
   ngAfterViewInit(): void {
-    this.inVisibleEl!.nativeElement.style.display = "none";
-    this.visibleEl!.nativeElement.style.display = "block";
+    this.invisibleOnDrag!.nativeElement.style.display = "block";
+    this.visibleOnDrag!.nativeElement.style.display = "none";
   }
 
   ngOnInit() {
   }
 
   onImageDragOver() {
-    this.inVisibleEl.nativeElement.style.display = "block";
-    this.visibleEl.nativeElement.style.display = "none";
+    this.invisibleOnDrag.nativeElement.style.display = "none";
+    this.visibleOnDrag.nativeElement.style.display = "block";
   }
 
   onImageDragLeave() {
-    this.inVisibleEl.nativeElement.style.display = "none";
-    this.visibleEl.nativeElement.style.display = "block";
+    this.visibleOnDrag.nativeElement.style.display = "none";
+    this.invisibleOnDrag.nativeElement.style.display = "block";
   }
 
 }

@@ -8,15 +8,21 @@
       Pro tip: Use photos that set the mood, and avoid distracting text
       overlays. View examples ->
     </p>
-    <mat-card id="image-drop-card" #visible appUploadImage>
+    <mat-card
+      id="image-drop-card"
+      appUploadImage
+      (imageDragOver)="onImageDragOver()"
+      (imageDragLeave)="onImageDragLeave()"
+    >
       <mat-card-content class="image-drop-card-content">
         <mat-icon
           aria-hidden="false"
           aria-label="Add Image Icon"
           fontSet="material-icons-outlined"
+          preventDrag
           >add_photo_alternate
         </mat-icon>
-        <h3>
+        <h3 preventDrag>
           Drag and drop an image or
         </h3>
         <button
@@ -24,22 +30,17 @@
           disableRipple="true"
           id="image-upload-button"
           color="grey"
+          preventDrag
         >
           <mat-icon
             aria-hidden="false"
             aria-label="Add Image Icon"
             fontSet="material-icons-outlined"
+            preventDrag
             >add_photo_alternate
           </mat-icon>
           Upload Image
         </button>
-      </mat-card-content>
-    </mat-card>
-    <mat-card id="image-drop-card" #invisible>
-      <mat-card-content class="image-drop-card-content" id="visible-on-drag">
-        <p>
-          Upload image here
-        </p>
       </mat-card-content>
     </mat-card>
   </mat-card-content>
