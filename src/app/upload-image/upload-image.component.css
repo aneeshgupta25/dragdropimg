@@ -36,50 +36,66 @@
   }
 }
 
-#image-drop-card {
+.image-card {
   margin: 1rem 0;
   padding: 0;
   width: 100%;
-  height: 40vh;
+  aspect-ratio: 2 / 1;
   background-color: #80808017;
   border: none;
   border-radius: 10px;
   box-shadow: none;
+}
+.image-card .image-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0;
 
-  .image-drop-card-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    padding: 0;
+  h3 {
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
 
-    h3 {
-      font-weight: 500;
-      font-size: 1.25rem;
-    }
-
-    #image-upload-button {
-      padding: 0.8rem 1.8rem;
-      border-radius: 5px;
-      background-color: white;
-      border: 2px solid grey;
-      color: black;
-
-      mat-icon {
-        height: 1.2rem;
-        width: 1.2rem;
-        font-size: 1.2rem;
-        color: black;
-      }
-    }
+  #image-upload-button {
+    padding: 0.8rem 1.8rem;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid grey;
+    color: black;
 
     mat-icon {
-      height: 2rem;
-      width: 2rem;
-      font-size: 2rem;
-      color: #808080c2;
+      height: 1.2rem;
+      width: 1.2rem;
+      font-size: 1.2rem;
+      color: black;
     }
   }
+
+  mat-icon {
+    height: 2rem;
+    width: 2rem;
+    font-size: 2rem;
+    color: #808080c2;
+  }
+}
+
+#focused-image-card:hover {
+  
+}
+
+.focused-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.focused-image {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  max-width: 100%;
 }

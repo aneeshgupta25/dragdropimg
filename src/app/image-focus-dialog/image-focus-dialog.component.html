@@ -1,0 +1,63 @@
+<h2 mat-dialog-title style="background-color: white;">Focus Point</h2>
+<!-- <button
+      mat-icon-button
+      disableRipple="true"
+      aria-label="Close Dialog Button"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="close icon"
+        fontSet="material-icons-outlined"
+        >close
+      </mat-icon>
+    </button> -->
+<mat-dialog-content id="focus-card-content">
+  <div id="non-focus">
+    <img
+      [src]="url()"
+      #focusPickerImg
+      data-focus-x="0.00"
+      data-focus-y="0.00"
+    />
+  </div>
+  <mat-card class="content-card" id="focus">
+    <mat-card-content>
+      <h3>Preview your image</h3>
+      <p>
+        See how your image looks on different screen sizes. Attendees can expand
+        the image to see the whole thing.
+      </p>
+      <h4>Square (1:1)</h4>
+      <div id="square-preview">
+        <img [src]="url()" #imageToBeFocussedSq />
+      </div>
+      <h4>Rectangle (2:1)</h4>
+      <div id="rectangle-preview">
+        <img [src]="url()" #imageToBeFocussedRec />
+      </div>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions style="background-color: white;">
+  <button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="true" (click)="onSave()">Save</button>
+</mat-dialog-actions>
+<!-- <mat-card-content id="focus-card-content">
+  </mat-card-content> -->
+<!-- <mat-card-footer id="focus-card-footer">
+    <button
+      class="button"
+      id="save-button"
+      mat-stroked-buttonaria-label="Close Dialog Button"
+    >
+      Save
+    </button>
+    <button
+      class="button"
+      id="cancel-button"
+      mat-stroked-buttonaria-label="Close Dialog Button"
+    >
+      Cancel
+    </button>
+  </mat-card-footer> -->
+<!-- </mat-card> -->
